@@ -1,0 +1,142 @@
+﻿<error errorId="51bf68a9-ce99-48b7-9d42-ca2b9212ea8a" application="DITSPortal.API(1.0.0.0)" host="MSI" type="System.Exception" message="DivideByZeroException" source="DITSPortal.API" detail="System.Exception: DivideByZeroException&#xD;&#xA;   at DITSPortal.API.Controllers.ConfigurationAPIController.GetConfigurationDataList() in D:\Saddam\SaddamHusaain\2018_May\Client\DITS\dits-portal-api\DITSPortal.API\DITSPortal.API\Controllers\ConfigurationAPIController.cs:line 45&#xD;&#xA;   at lambda_method(Closure , Object , Object[] )&#xD;&#xA;   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;d__12.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;d__10.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.&lt;InvokeInnerFilterAsync&gt;d__14.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.&lt;InvokeNextResourceFilter&gt;d__22.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.&lt;InvokeFilterPipelineAsync&gt;d__17.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.&lt;InvokeAsync&gt;d__15.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at Microsoft.AspNetCore.Builder.RouterMiddleware.&lt;Invoke&gt;d__4.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at ElmahCore.ErrorLogMiddleware.&lt;Invoke&gt;d__18.MoveNext()" time="2018-09-22T09:08:28.9840864Z">
+  <serverVariables>
+    <item name="ConnectionFeatures" />
+    <item name="ConnectionIdFeature">
+      <value string="0HLH0DBMEN2MR" />
+    </item>
+    <item name="HasStartedConsumingRequestBody">
+      <value string="False" />
+    </item>
+    <item name="MaxRequestBodySize" />
+    <item name="AllowSynchronousIO">
+      <value string="True" />
+    </item>
+    <item name="TraceIdentifier">
+      <value string="0HLH0DBMEN2MR:00000002" />
+    </item>
+    <item name="WasUpgraded">
+      <value string="False" />
+    </item>
+    <item name="RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="RemotePort">
+      <value string="51357" />
+    </item>
+    <item name="LocalIpAddress">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="LocalPort">
+      <value string="25306" />
+    </item>
+    <item name="Scheme">
+      <value string="http" />
+    </item>
+    <item name="Method">
+      <value string="GET" />
+    </item>
+    <item name="PathBase" />
+    <item name="Path">
+      <value string="/api/ConfigurationAPI/GetConfigurationDataList" />
+    </item>
+    <item name="QueryString">
+      <value string="" />
+    </item>
+    <item name="RawTarget">
+      <value string="/api/ConfigurationAPI/GetConfigurationDataList" />
+    </item>
+    <item name="HttpVersion">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="Header_Connection">
+      <value string="Keep-Alive" />
+    </item>
+    <item name="Header_Accept">
+      <value string="application/json" />
+    </item>
+    <item name="Header_Accept-Encoding">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="Header_Accept-Language">
+      <value string="en-US,en;q=0.9" />
+    </item>
+    <item name="Header_Cookie">
+      <value string="_ga=GA1.1.592484011.1526794479; jenkins-timestamper-offset=-19800000; hblid=ltnB12tLeisXb2Oc0M4fY0Ja6dokX5a7; olfsk=olfsk3040631392825246; ASP.NET_SessionId=21jwc4efska0pylxmrqagap5; __RequestVerificationToken=3DgR_etLuAn4_r69AA3PTVcRYfPjIcdeGwGLvySXgmzGII87akxqJUTVQHifFCmOf2gqq95Wy3LOt9KXPkXrfNnrmE_WL6FqGczuUCOxlvM1; SelectedClient=6; SelectedClientName=smith, John; .ASPXAUTH=A20BE64CCC1EDEED1E20EF0276F2E671269EE5D3F184F8D715DD0B66242B2457CD6FF7F76795DCBE52CFCF22524AB4C083A0DE14FC989AFD8148E958844E60D0952B82D30F8BD982D5FA98F1F45481383C8B6EDCC8A826B4EBA8E59548F2D4EA1970CFBDF06557C55EDF43089095D9FE6F4A6164CAEB1A90732DB36C065B9094B1D412C2DB9D96E4B7EFA8C183A84652" />
+    </item>
+    <item name="Header_Host">
+      <value string="localhost:52515" />
+    </item>
+    <item name="Header_Referer">
+      <value string="http://localhost:52515//swagger/index.html" />
+    </item>
+    <item name="Header_User-Agent">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36" />
+    </item>
+    <item name="Header_MS-ASPNETCORE-TOKEN">
+      <value string="28f9a66d-f0ee-4e7e-93ee-12679ccbb3ee" />
+    </item>
+    <item name="Header_X-Original-Proto">
+      <value string="http" />
+    </item>
+    <item name="Header_X-Original-For">
+      <value string="127.0.0.1:51359" />
+    </item>
+    <item name="StatusCode">
+      <value string="200" />
+    </item>
+    <item name="ReasonPhrase" />
+    <item name="HasResponseStarted">
+      <value string="False" />
+    </item>
+    <item name="User_ClaimsPrincipalSelector" />
+    <item name="User_Current" />
+    <item name="Connection_Id">
+      <value string="0HLH0DBMEN2MR" />
+    </item>
+    <item name="Connection_RemoteIpAddress">
+      <value string="::1" />
+    </item>
+    <item name="Connection_RemotePort">
+      <value string="51357" />
+    </item>
+    <item name="Connection_LocalIpAddress">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="Connection_LocalPort">
+      <value string="25306" />
+    </item>
+    <item name="Connection_ClientCertificate" />
+    <item name="HttpStatusCode">
+      <value string="0" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="_ga">
+      <value string="GA1.1.592484011.1526794479" />
+    </item>
+    <item name="jenkins-timestamper-offset">
+      <value string="-19800000" />
+    </item>
+    <item name="hblid">
+      <value string="ltnB12tLeisXb2Oc0M4fY0Ja6dokX5a7" />
+    </item>
+    <item name="olfsk">
+      <value string="olfsk3040631392825246" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="21jwc4efska0pylxmrqagap5" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="3DgR_etLuAn4_r69AA3PTVcRYfPjIcdeGwGLvySXgmzGII87akxqJUTVQHifFCmOf2gqq95Wy3LOt9KXPkXrfNnrmE_WL6FqGczuUCOxlvM1" />
+    </item>
+    <item name="SelectedClient">
+      <value string="6" />
+    </item>
+    <item name="SelectedClientName">
+      <value string="smith" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="A20BE64CCC1EDEED1E20EF0276F2E671269EE5D3F184F8D715DD0B66242B2457CD6FF7F76795DCBE52CFCF22524AB4C083A0DE14FC989AFD8148E958844E60D0952B82D30F8BD982D5FA98F1F45481383C8B6EDCC8A826B4EBA8E59548F2D4EA1970CFBDF06557C55EDF43089095D9FE6F4A6164CAEB1A90732DB36C065B9094B1D412C2DB9D96E4B7EFA8C183A84652" />
+    </item>
+  </cookies>
+</error>
