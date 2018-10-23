@@ -1,0 +1,12 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+body {
+  padding: 20px;
+}
+.ellipsis {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+body .bs-datepicker-container {
+  padding: 0px !important;
+}

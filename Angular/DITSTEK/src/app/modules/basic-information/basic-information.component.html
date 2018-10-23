@@ -1,0 +1,204 @@
+<form #basicInformationForm="ngForm">
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>First Name</label>
+          <input #firstnameControl="ngModel" required [(ngModel)]="basic.FirstName" name="FirstName" id="FirstName" type="text" class="form-control"
+            placeholder="" />
+
+        </div>
+        <span class="error" *ngIf="firstnameControl.invalid && firstnameControl.touched">
+          Firstname is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Middle Name</label>
+
+          <input type="text" class="form-control" [(ngModel)]="basic.MiddleName" name="middleName" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Last Name</label>
+          <input #lastnameControl="ngModel" required [(ngModel)]="basic.LastName" name="lastname" type="text" class="form-control"
+            placeholder="" />
+        </div>
+        <span class="error" *ngIf="lastnameControl.invalid && lastnameControl.touched">
+          Lastname is required
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Father Name</label>
+          <input #fathernameControl="ngModel" required [(ngModel)]="basic.FatherName" name="fathername" type="text" class="form-control"
+            placeholder="" />
+        </div>
+        <span class="error" *ngIf="fathernameControl.invalid && fathernameControl.touched">
+          FatherName is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Mother Name</label>
+          <input type="text" [(ngModel)]="basic.MotherName" name="mothername" class="form-control" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Nationality</label>
+          <!-- <input #nationalityControl="ngModel" required [(ngModel)]="basic.Nationality" name="nationality" type="text" class="form-control"
+            placeholder="" /> -->
+          <select #nationalityControl="ngModel" required [(ngModel)]="basic.Nationality" name="nationality" class="form-control">
+            <option *ngFor="let dept of test.NationalityList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+          </select>
+
+        </div>
+        <span class="error" *ngIf="nationalityControl.invalid && nationalityControl.touched">
+          Nationality is required
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Gender</label>
+          <select #genderControl="ngModel" required [(ngModel)]="basic.Gender" name="gender" class="form-control">
+            <option *ngFor="let dept of test.GenderList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+          </select>
+        </div>
+        <span class="error" *ngIf="genderControl.invalid && genderControl.touched">
+          Gender is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Blood Group</label>
+          <!-- <input type="text" [(ngModel)]="basic.BloodGroup" name="bloodgroup" class="form-control" placeholder="" /> -->
+          <select #BloodGroupControl="ngModel" required [(ngModel)]="basic.BloodGroup" name="bloodgroup" class="form-control">
+            <option *ngFor="let dept of test.BloodGroupList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Marital Status</label>
+          <!-- <input type="text" [(ngModel)]="basic.MaritalStatus" name="maritalstatus" class="form-control" placeholder="" /> -->
+          <select #MaritalStatusControl="ngModel" required [(ngModel)]="basic.MaritalStatus" name="MaritalStatus" class="form-control">
+            <option *ngFor="let dept of test.MaritalStatusList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Anniversary Date</label>
+          <input #anniversarydateControl="ngModel" [bsConfig]="datePickerConfig" required [(ngModel)]="basic.Anniversarydate" name="anniversarydate"
+            bsDatepicker placement="top" type="text" class="form-control" placeholder="" />
+        </div>
+        <span class="error" *ngIf="anniversarydateControl.invalid && anniversarydateControl.touched">
+          Anniversary Date is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Date Of Joining</label>
+          <input #dateofjoiningControl="ngModel" [bsConfig]="datePickerConfig" required [(ngModel)]="basic.DateOfJoining" name="dateofjoining"
+            type="text" placement="top" bsDatepicker class="form-control" placeholder="" />
+        </div>
+        <span class="error" *ngIf="dateofjoiningControl.invalid && dateofjoiningControl.touched">
+          Date Of Joining is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Date Of Birth</label>
+          <input #dateofbithControl="ngModel" required [bsConfig]="datePickerConfig" [(ngModel)]="basic.DateOfBirth " name="dateofbirth"
+            type="text" placement="top" bsDatepicker class="form-control" placeholder="" />
+        </div>
+        <span class="error" *ngIf="dateofbithControl.invalid && dateofbithControl.touched">
+          Date Of Birth is required
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Religion</label>
+          <!-- <input #religionControl="ngModel" required [(ngModel)]="basic.Religion" name="religion" type="text" class="form-control"
+            placeholder="" /> -->
+          <select #religionControl="ngModel" required [(ngModel)]="basic.Religion" name="Religion" class="form-control">
+            <option *ngFor="let dept of test.ReligionList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+          </select>
+        </div>
+        <span class="error" *ngIf="religionControl.invalid && religionControl.touched">
+          Religion is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Hobbies</label>
+          <input type="text" [(ngModel)]="basic.Hobbies" name="hobbies" class="form-control" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <button type="button" [disabled]="basicInformationForm.invalid" (click)="saveBasicInformation(basicInformationForm.value)"
+          class="btn bg-teal waves-effect" style="float: right;">SAVE</button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</form>

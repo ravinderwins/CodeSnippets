@@ -1,0 +1,70 @@
+<section>
+  <div class="container-fluid">
+    <div class="block-header">
+      <h2>Profile</h2>
+    </div>
+    <!-- Example Tab -->
+
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header">
+            <h2>
+              Add Details
+            </h2>
+
+          </div>
+          <div class="body">
+            <div class="row clearfix">
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#home_animation_2" data-toggle="tab">BASIC</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#profile_animation_2" data-toggle="tab">CONTACT</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#messages_animation_2" data-toggle="tab">EMERGENCY CONTACT</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#settings_animation_2" data-toggle="tab">EDUCATION</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#work_animation_2" data-toggle="tab">WORK</a>
+                  </li>
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane animated fadeInRight active" id="home_animation_2">
+                   <app-basic-information></app-basic-information>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane animated fadeInRight" id="profile_animation_2">
+                   <app-contact></app-contact>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane animated fadeInRight" id="messages_animation_2">
+                   <app-emergency-contact></app-emergency-contact>
+                  </div>
+                  <div role="tabpanel" class="tab-pane animated fadeInRight" id="settings_animation_2">
+                    <app-education></app-education>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane animated fadeInRight" id="work_animation_2">
+                  <app-work></app-work>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #END# Tabs With Custom Animations -->
+  </div>
+</section>

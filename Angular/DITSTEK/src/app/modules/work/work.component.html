@@ -1,0 +1,229 @@
+<div class="body table-responsive">
+  <table *ngIf="workarray.length > 0" class="table table-striped">
+    <thead class="pointer">
+      <tr>
+        <th (click)="sort('OrganizationType')">Organisation Type
+          <i class="material-icons" *ngIf="column == 'OrganizationType' && !isDesc">arrow_drop_up</i>
+          <i class="material-icons" *ngIf="column == 'OrganizationType' && isDesc">arrow_drop_down</i>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Duration</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let work of workarray | orderBy: {property: column, direction: direction} ;  index as i">
+        <td>{{work.OrganizationType}}</td>
+        <td>{{work.OrganisationName}}</td>
+        <td>{{work.Designation}}</td>
+        <td>{{work.StartMonth}}/{{work.StartYear}} - {{work.EndMonth}}/{{work.EndYear}} </td>
+
+        <td>
+          <i class="material-icons" (click)="openModal(template,work,i)" style="cursor: pointer;">edit</i>
+          <i (click)="openConfirmationModal(newtemplate,i,work.UserWorkDetailId)" class="material-icons" style="cursor: pointer;">delete</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="row clearfix">
+  <div class="col-sm-4">
+    <div class="form-group">
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <button type="button" (click)="openModal(template,work=0) " class="btn bg-teal waves-effect" style="float: right;">ADD</button>
+    </div>
+  </div>
+
+
+</div>
+
+<ng-template #template>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background-color: #F44336;">
+        <h4 class="modal-title" style="color:white" id="defaultModalLabel">{{work.UserWorkDetailId > 0?'Update':'Add'}}Work Experience Details</h4>
+      </div>
+      <div class="modal-body">
+        <form #workForm="ngForm">
+
+          <div class="row clearfix">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>Organisation Type</label>
+                  <select #organisationtypeControl="ngModel" required [(ngModel)]="work.OrganizationType" name="organizationtype" class="form-control show-tick">
+                    <option *ngFor="let dept of test.OrganizationList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+                  </select>
+                </div>
+                <span class="error" *ngIf="organisationtypeControl.invalid && organisationtypeControl.touched">
+                  Organisation Type is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>Organisation Name</label>
+                  <input #organisationnameControl="ngModel" required [(ngModel)]="work.OrganisationName" name="organisationname" type="text"
+                    class="form-control" placeholder="" />
+
+                </div>
+                <span class="error" *ngIf="organisationnameControl.invalid && organisationnameControl.touched">
+                  Organisation Name is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>Designation</label>
+                  <input #designationControl="ngModel" required [(ngModel)]="work.Designation" name="designation" type="text" class="form-control"
+                    placeholder="" />
+                </div>
+                <span class="error" *ngIf="designationControl.invalid && designationControl.touched">
+                  Designation is required
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row clearfix">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>StartMonth</label>
+                  <select #startmonthControl="ngModel" [(ngModel)]="work.StartMonth" required name="StartMonth" class="form-control show-tick">
+                    <option value="1">January</option>
+                    <option value="2">Februrary</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">Novemember</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <span class="error" *ngIf="startmonthControl.invalid && startmonthControl.touched">
+                  Start Month is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>StartYear</label>
+                  <select #startyearControl="ngModel" required [(ngModel)]="work.StartYear" name="StartYear" class="form-control show-tick">
+                    <option *ngFor="let year of createYearsRange();">{{year}}</option>
+
+                  </select>
+                </div>
+                <span class="error" *ngIf="startyearControl.invalid && startyearControl.touched">
+                  Start Year is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>EndMonth</label>
+                  <select #endmonthControl="ngModel" required [(ngModel)]="work.EndMonth" name="endmonth" class="form-control show-tick">
+                    <option value="1">January</option>
+                    <option value="2">Februrary</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">Novemember</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <span class="error" *ngIf="endmonthControl.invalid && endmonthControl.touched">
+                  End Month is required
+                </span>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row clearfix">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-line">
+                  <label>EndYear</label>
+                  <select #endyearControl="ngModel" required [(ngModel)]="work.EndYear" name="endyear" required class="form-control show-tick">
+                    <option *ngFor="let year of createYearsRange();">{{year}}</option>
+
+                  </select>
+                </div>
+                <span class="error" *ngIf="endyearControl.invalid && endyearControl.touched">
+                  End Year is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button [disabled]="workForm.invalid" type="button" (click)="saveWork(work)" class="btn btn-primary">SAVE</button>
+        <button type="button" class="btn btn-danger" (click)="modalRef.hide()" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #newtemplate>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background-color: #F44336;">
+        <h4 class="modal-title" style="color:white" id="defaultModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete it ?</p>
+        <input #indexnumber type="hidden" id="index" name="index">
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="deleteRecord()" class="btn btn-primary">YES</button>
+        <button type="button" class="btn btn-danger" (click)="modalRef.hide()" data-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

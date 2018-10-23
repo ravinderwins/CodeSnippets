@@ -1,0 +1,244 @@
+<b>Contact Details</b>
+<form #contactForm="ngForm">
+  <div class="row clearfix margintop">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Email</label>
+
+          <input #emailControl="ngModel" required [(ngModel)]="contact.Email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+            name="email" type="text" class="form-control" placeholder="" />
+        </div>
+        <span class="error" *ngIf="emailControl.errors?.required && emailControl.touched">
+          Email is required
+        </span>
+        <span class="error" *ngIf="emailControl.errors?.pattern && emailControl.touched">
+          Email is invalid
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Alternate Email</label>
+
+          <input type="text" class="form-control" [(ngModel)]="contact.AlternateEmail" name="alternateemail" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Phone Number</label>
+          <input (keypress)="_keyPress($event)" maxlength="10" required #phonenumberControl="ngModel" [(ngModel)]="contact.PhoneNumber"
+            name="phonenumber" type="text" class="form-control" placeholder="" />
+        </div>
+        <span class="error" *ngIf="phonenumberControl.invalid && phonenumberControl.touched">
+          Phone Number is required
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix ">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Alternate Number</label>
+          <input type="text" (keypress)="_keyPress($event)" maxlength="10" [(ngModel)]="contact.AlternatePhoneNumber" name="alternatephoneNumber"
+            class="form-control" placeholder="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Skype ID</label>
+
+          <input type="text" class="form-control" [(ngModel)]="contact.SkypeId" name="skypeid" placeholder="" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <b>Permanent Address</b>
+  <div class="row clearfix margintop">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Address</label>
+
+          <input #permaddressControl="ngModel" required type="text" [(ngModel)]="contact.PermanentAddress" name="PermanentAddress"
+            class="form-control" placeholder="" />
+        </div>
+        <span class="error" *ngIf="permaddressControl.invalid && permaddressControl.touched">
+          Address is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>City</label>
+          <select #permcityControl="ngModel" [(ngModel)]="contact.PermanentCity" name="PermanentCity" required class="form-control show-tick">
+            <option *ngFor="let dept of test.CityList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+          </select>
+        </div>
+        <span class="error" *ngIf="permcityControl.invalid && permcityControl.touched">
+          City is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>State</label>
+          <select #permstateControl="ngModel" [(ngModel)]="contact.PermanentState" required name="PermanentState" class="form-control show-tick">
+            <option *ngFor="let dept of test.StateList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+          </select>
+        </div>
+        <span class="error" *ngIf="permstateControl.invalid && permstateControl.touched">
+          State is required
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix ">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Country</label>
+
+          <select #permcountryControl="ngModel" [(ngModel)]="contact.PermanentCountry" name="PermanentCountry" required class="form-control show-tick">
+            <option *ngFor="let dept of test.CountryList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+          </select>
+        </div>
+        <span class="error" *ngIf="permcountryControl.invalid && permcountryControl.touched">
+          Country is required
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>ZipCode</label>
+
+          <input #zipcodeControl="ngModel" (keypress)="_keyPress($event)" maxlength="6" [(ngModel)]="contact.PermanentZIP" name="PermanentZIP"
+            required type="text" class="form-control" placeholder="" />
+
+        </div>
+        <span class="error" *ngIf="zipcodeControl.invalid && zipcodeControl .touched">
+          ZipCode is required
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <b>Correspondence Address</b>
+
+  <div style="float:right">
+    <input type="checkbox" class="form-control" [checked]="false" (change)="updateAddrs($event)" id="basic_checkbox_1" />
+    <label for="basic_checkbox_1">
+      <b>Same As Permanent </b>
+    </label>
+  </div>
+
+  <div class="row clearfix margintop">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Address</label>
+
+          <input type="text" [(ngModel)]="contact.CorrespondenceAddress" name="CorrespondenceAddress" class="form-control" placeholder=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>City</label>
+
+          <select [(ngModel)]="contact.CorrespondenceCity" name="CorrespondenceCity" class="form-control show-tick">
+            <option *ngFor="let dept of test.CityList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>State</label>
+
+          <select [(ngModel)]="contact.CorrespondenceState" name="CorrespondenceState" class="form-control show-tick">
+            <option *ngFor="let dept of test.StateList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+
+  </div>
+
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>Country</label>
+
+          <select [(ngModel)]="contact.CorrespondenceCountry" name="CorrespondenceCountry" class="form-control show-tick">
+            <option *ngFor="let dept of test.CountryList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <div class="form-line">
+          <label>ZipCode</label>
+
+          <input maxlength="6" type="text" (keypress)="_keyPress($event)" [(ngModel)]="contact.CorrespondenceZIP" name="CorrespondenceZIP"
+            class="form-control" placeholder="ZipCode" />
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <button type="button" (click)="saveContactDetail(contact)" [disabled]="contactForm.invalid" class="btn bg-teal waves-effect"
+          style="float: right;">SAVE</button>
+      </div>
+    </div>
+  </div>
+</form>

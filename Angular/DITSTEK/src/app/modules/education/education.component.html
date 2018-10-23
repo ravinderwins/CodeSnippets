@@ -1,0 +1,182 @@
+<div class="body table-responsive">
+  <table *ngIf="educationarray.length > 0" class="table table-striped">
+    <thead class="pointer">
+      <tr>
+        <th (click)="sort('qualificationtype')">Qualification
+          <i class="material-icons" *ngIf="column == 'qualificationtype' && !isDesc">arrow_drop_up</i>
+          <i class="material-icons" *ngIf="column == 'qualificationtype' && isDesc">arrow_drop_down</i>
+        </th>
+        <th>Institute</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Percentage</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let education of educationarray | orderBy: {property: column, direction: direction} ; index as i">
+        <td>{{education.qualificationtype}}</td>
+        <td>{{education.institutename}}</td>
+        <td>{{education.course}}</td>
+        <td>{{education.passoutyear}}</td>
+        <td>{{education.percentage}}</td>
+        <td>
+          <i class="material-icons " (click)="openModal(template,education,i)" style="cursor: pointer; ">edit</i>
+          <i (click)="openConfirmationModal(newtemplate,i,education.EducationDetailId) " class="material-icons " style="cursor: pointer; ">delete</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="row clearfix ">
+  <div class="col-sm-3 ">
+    <div class="form-group ">
+
+    </div>
+  </div>
+  <div class="col-sm-3 ">
+    <div class="form-group ">
+
+    </div>
+  </div>
+  <div class="col-sm-3 ">
+    <div class="form-group ">
+    </div>
+  </div>
+
+
+  <div class="col-sm-3 ">
+    <div class="form-group ">
+      <button type="button " (click)="openModal(template,education=0) " class="btn bg-teal waves-effect " style="float: right; ">ADD</button>
+
+    </div>
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-dialog " role="document ">
+    <div class="modal-content ">
+      <div class="modal-header " style=" background-color: #F44336; ">
+        <h4 class="modal-title " style="color:white " id="defaultModalLabel ">{{education.EducationDetailId > 0?'Update':'Add'}} Education Details</h4>
+      </div>
+      <div class="modal-body">
+        <form #educationForm="ngForm">
+          <div class="row clearfix">
+
+            <div class="col-sm-4 ">
+              <div class="form-group ">
+                <div class="form-line ">
+                  <label>Qualification Type</label>
+                  <select #qualificationtypeControl="ngModel" required [(ngModel)]="education.qualificationtype" name="qualificationtype" class="form-control show-tick ">
+                    <option *ngFor="let dept of test.QualificationTypeList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+                  </select>
+                </div>
+                <span class="error " *ngIf="qualificationtypeControl.invalid && qualificationtypeControl.touched ">
+                  Qualification Type is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4 ">
+              <div class="form-group ">
+                <div class="form-line ">
+                  <label>Institute Name</label>
+
+                  <input #institutenameControl="ngModel" required [(ngModel)]="education.institutename" name="institutename" type="text " class="form-control "
+                  />
+                </div>
+                <span class="error " *ngIf="institutenameControl.invalid && institutenameControl.touched ">
+                  Institute Name is required
+                </span>
+              </div>
+            </div>
+
+            <div class="col-sm-4 ">
+              <div class="form-group ">
+                <div class="form-line ">
+                  <label>Course</label>
+                  <select #courseControl="ngModel" required [(ngModel)]="education.course" name="course" class="form-control show-tick ">
+                    <option *ngFor="let dept of test.CourseList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+                  </select>
+                </div>
+                <span class="error " *ngIf="courseControl.invalid && courseControl.touched ">
+                  Course is required
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row clearfix ">
+
+            <div class="col-sm-4 ">
+              <div class="form-group ">
+                <div class="form-line ">
+                  <label>Passout Year</label>
+                  <select #passoutyearControl="ngModel" required [(ngModel)]="education.passoutyear" name="passoutyear" class="form-control show-tick ">
+                    <option *ngFor="let year of createYearsRange(); ">{{year}}</option>
+                  </select>
+                </div>
+                <span class="error" *ngIf="passoutyearControl.invalid && passoutyearControl.touched ">
+                  Passout Year is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4 ">
+              <div class="form-group ">
+                <div class="form-line ">
+                  <label>Percentage</label>
+                  <input #percentageControl="ngModel" pattern="((\d+)((\.\d{1,2})?))$" required [(ngModel)]="education.percentage" name="percentage"
+                    type="text " class="form-control " />
+                </div>
+                <span class="error " *ngIf="percentageControl.errors?.required && percentageControl.touched ">
+                  Percentage is required
+                </span>
+
+                <span class="error " *ngIf="percentageControl.errors?.pattern && percentageControl.touched ">
+                  Percentage is invalid
+                </span>
+              </div>
+            </div>
+
+            <div class="col-sm-4 ">
+              <div class="form-group ">
+                <div>
+                  <input type="checkbox" [(ngModel)]="education.currentlystudying" name="currentlystudying" class="form-control " id="basic_checkbox_1 "
+                  />
+                  <label for="basic_checkbox_1 ">Currently Studying</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer ">
+        <button (click)="saveEducation(education) " [disabled]="educationForm.invalid " type="button" class="btn btn-primary ">SAVE</button>
+        <button type="button " class="btn btn-danger " (click)="modalRef.hide() " data-dismiss="modal ">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+<ng-template #newtemplate>
+  <div class="modal-dialog " role="document ">
+    <div class="modal-content ">
+      <div class="modal-header " style=" background-color: #F44336; ">
+        <h4 class="modal-title " style="color:white " id="defaultModalLabel ">Confirmation</h4>
+      </div>
+      <div class="modal-body ">
+        <p>Are you sure you want to delete it ?</p>
+      </div>
+      <div class="modal-footer ">
+        <button type="button " (click)="deleteRecord() " class="btn btn-primary ">YES</button>
+        <button type="button " class="btn btn-danger " (click)="modalRef.hide() " data-dismiss="modal ">NO</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

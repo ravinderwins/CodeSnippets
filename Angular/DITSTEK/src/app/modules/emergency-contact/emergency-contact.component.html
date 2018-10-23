@@ -1,0 +1,144 @@
+<div class="body table-responsive">
+  <table *ngIf="emergencycontactarray.length > 0" class="table table-striped">
+    <thead class="pointer">
+      <tr>
+        <th (click)="sort('Name')">Name
+          <i class="material-icons" *ngIf="column == 'Name' && !isDesc">arrow_drop_up</i>
+          <i class="material-icons" *ngIf="column == 'Name' && isDesc">arrow_drop_down</i>
+        </th>
+        <th>Relation</th>
+        <th>Occupation</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let emergencycontact of emergencycontactarray| orderBy: {property: column, direction: direction} ;  index as i">
+        <td>{{emergencycontact.Name}}</td>
+        <td>{{emergencycontact.Relation}}</td>
+        <td>{{emergencycontact.Occupation}}</td>
+        <td>{{emergencycontact.ContactNumber}}</td>
+
+        <td>
+          <i class="material-icons" (click)="openModal(template,emergencycontact,i)" style="cursor: pointer;">edit</i>
+          <i (click)="openConfirmationModal(newtemplate,i,emergencycontact.UserEmergencyContactId)" class="material-icons" style="cursor: pointer;">delete</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row clearfix">
+  <div class="col-sm-3">
+    <div class="form-group">
+
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+    </div>
+  </div>
+
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <button type="button" (click)="openModal(template,emergencycontact=0) " class="btn bg-teal waves-effect" style="float: right;">ADD</button>
+
+    </div>
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background-color: #F44336;">
+        <h4 class="modal-title" style="color:white" id="defaultModalLabel">{{emergency.UserEmergencyContactId > 0?'Update':'Add'}} Emergency Contact</h4>
+      </div>
+      <div class="modal-body">
+        <form #emergencyContactModal="ngForm">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="form-line">
+                <label>Name</label>
+                <input #nameControl="ngModel" required [(ngModel)]="emergency.Name" name="Name" required type="text" class="form-control"
+                  placeholder="" />
+              </div>
+              <span class="error" *ngIf="nameControl.invalid && nameControl.touched">
+                Name is required
+              </span>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="form-line">
+                <label>Relation</label>
+                <select #relationControl="ngModel" required [(ngModel)]="emergency.Relation" name="Relation" class="form-control show-tick">
+                  <option *ngFor="let dept of test.RelationList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+                </select>
+              </div>
+              <span class="error" *ngIf="relationControl.invalid && relationControl.touched">
+                Relation is required
+              </span>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="form-line">
+                <label>Occupation</label>
+                <select #occupationControl="ngModel" required [(ngModel)]="emergency.Occupation" name="Occupation" class="form-control show-tick ">
+                  <option *ngFor="let dept of test.OccupationList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+
+                </select>
+              </div>
+              <span class="error" *ngIf="occupationControl.invalid && occupationControl.touched">
+                Occupation is required
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="form-line">
+                <label>ContactNumber</label>
+                <input #contactNumberControl="ngModel" [(ngModel)]="emergency.ContactNumber" (keypress)="_keyPress($event)" maxlength="10"
+                  name="ContactNumber" required type="text" class="form-control" placeholder="" />
+              </div>
+              <span class="error" *ngIf="contactNumberControl.invalid && contactNumberControl.touched">
+                Contact Number is required
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="saveEmergencyContact(emergency)" [disabled]="emergencyContactModal.invalid" type="button" class="btn btn-primary">SAVE</button>
+        <button type="button" class="btn btn-danger" (click)="modalRef.hide()" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+<ng-template #newtemplate>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background-color: #F44336;">
+        <h4 class="modal-title" style="color:white" id="defaultModalLabel">Confirmation</h4>{{index}}
+        <input #indexnumber type="hidden" id="index" name="index">
+
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete it ?</p>{{i}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="deleteRecord()" class="btn btn-primary">YES</button>
+        <button type="button" class="btn btn-danger" (click)="modalRef.hide()" data-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

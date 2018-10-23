@@ -1,0 +1,283 @@
+<section>
+  <div class="container-fluid">
+    <div class="block-header">
+      <h2>Task</h2>
+      <button style="float:right;" type="button " (click)="openModal(template,task=0) " class="btn bg-pink waves-effect " style="float: right; ">ADD</button>
+    </div>
+    <div class="body">
+
+      <div class="body table-responsive">
+        <table *ngIf="taskarray.length > 0" class="table table-striped">
+          <thead class="pointer">
+            <tr>
+
+              <th>Name</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let task of taskarray">
+              <td>{{task.Name}}</td>
+              <td class="ellipsis">{{task.Description}}</td>
+              <td>{{task.Prioritys}}</td>
+              <td>{{task.Status}}</td>
+              <td>
+                <i class="material-icons " (click)="openModal(template,task)" style="cursor: pointer; ">edit</i>
+                <i (click)="openConfirmationModal(newtemplate) " class="material-icons " style="cursor: pointer; ">delete</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row clearfix ">
+        <div class="col-sm-3 ">
+          <div class="form-group ">
+
+          </div>
+        </div>
+        <div class="col-sm-3 ">
+          <div class="form-group ">
+
+          </div>
+        </div>
+        <div class="col-sm-3 ">
+          <div class="form-group ">
+          </div>
+        </div>
+
+
+        <div class="col-sm-3 ">
+          <div class="form-group ">
+
+          </div>
+        </div>
+      </div>
+      <ng-template #template>
+        <div class="modal-dialog " role="document ">
+          <div class="modal-content ">
+            <div class="modal-header " style=" background-color: #F44336; ">
+              <h4 class="modal-title " style="color:white " id="defaultModalLabel ">Add Task</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="taskform">
+                <div class="row clearfix">
+                  <div class="col-sm-6">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Title</label>
+                        <input class=".input-group-lg" formControlName="Name" name="Name" type="text" class="form-control " />
+
+                      </div>
+                      <span class="error" *ngIf="taskform.get('Name').invalid && taskform.get('Name').touched">Title is required</span>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="form-line ">
+                        <label>Subject</label>
+                        <input class=".input-group-lg" formControlName="Subject" type="text" class="form-control " />
+
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="row clearfix">
+                  <div class="col-sm-12">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Nationality</label>
+                        <ng-select class="custom" formControlName="nationality" [items]="selectedCity" [multiple]="true" bindLabel="name" bindValue="id">
+                        </ng-select>
+                      </div>
+                      <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="row clearfix">
+                  <div class="col-sm-6">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Status</label>
+                        <select (change)="testselect($event.target.value)" formControlName="Status" class="form-control">
+                          <option *ngFor="let dept of dropdown.TaskStatusList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+                        </select>
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="form-line ">
+                        <label>Parent Task </label>
+                        <input class=".input-group-lg" formControlName="PredecessorTask" type="text" class="form-control " />
+
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="row clearfix">
+                  <div class="col-sm-6">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Priority</label>
+                        <select formControlName="Priority" class="form-control">
+                          <option *ngFor="let dept of dropdown.PriorityList" [value]="dept.GlobalCodeId">{{dept.CodeName}}</option>
+                        </select>
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="form-line ">
+                        <label>Start Date </label>
+                        <input formControlName="ScheduleStartDateTime" class=".input-group-lg" bsDatepicker placement="top" [bsConfig]="datePickerConfig"
+                          type="text" class="form-control " />
+
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row clearfix">
+                  <div class="col-sm-6">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Assignee</label>
+                        <select formControlName="AssignedBy" class="form-control">
+                          <option *ngFor="let dept of dropdown.UsersList" [value]="dept.UserId">{{dept.UserName}}</option>
+                        </select>
+                      </div>
+                      <span class="error" *ngIf="taskform.get('AssignedBy').invalid && taskform.get('AssignedBy').touched">Assignee is required</span>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="form-line ">
+                        <label>Due Date </label>
+                        <input formControlName="ScheduleEndDateTime" bsDatepicker placement="top" [bsConfig]="datePickerConfig" class=".input-group-lg"
+                          type="text" class="form-control " />
+
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row clearfix">
+                  <div class="col-sm-6">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Category</label>
+                        <select class="form-control">
+                        </select>
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="form-line ">
+                        <label>Estimated Time (Hours)</label>
+                        <input (keypress)="_keyPress($event)" class=".input-group-lg" type="text" class="form-control " />
+
+                      </div>
+                      <!-- <span class="error" *ngIf="taskform.get('taskname').invalid && taskform.get('taskname').touched">Task is required</span> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row clearfix ">
+                  <div class="col-sm-12">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>Description</label>
+                        <textarea class=".input-group-lg" formControlName="Description" class="form-control "></textarea>
+                      </div>
+                      <span class="error" *ngIf="taskform.get('Description').invalid && taskform.get('Description').touched">Description is required</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row clearfix ">
+                  <div class="col-sm-12">
+                    <div class="form-group ">
+                      <div class="form-line ">
+                        <label>File Upload</label>
+                        <input name="file" type="file" formControlName="files" multiple (change)="getFileDetails($event)" />
+                      </div>
+                      <span class="error" *ngIf="taskform.controls.itemRows.controls.invalid && taskform.controls.itemRows.controls.touched">Description is required</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row clearfix ">
+                  <div class="col-sm-12">
+                    <div formArrayName="itemRows">
+                      <label>CheckList</label>
+                      <div *ngFor="let itemrow of taskform.controls.itemRows.controls; let i=index" [formGroupName]="i">
+                        <div class="form-group ">
+                          <div class="form-line ">
+                            <input type="text" class="input-group-lg" required formControlName="Checklist" class="form-control " />
+                          </div>
+                          <span class="error" *ngIf="taskform.controls.itemRows.invalid && taskform.controls.itemRows.touched">Checklist is required</span>
+                        </div>
+                      </div>
+                      <button *ngIf="taskform.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">Remove</button>
+                      <button type="button" [disabled]="taskform.controls.itemRows.invalid" (click)="addNewRow()" class="btn btn-primary">Add</button>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </form>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" [disabled]="taskform.invalid" (click)="saveTask(taskform.value)" class="btn btn-primary ">SAVE</button>
+              <button type="button " class="btn btn-danger " (click)="modalRef.hide() " data-dismiss="modal ">CLOSE</button>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+
+      <ng-template #newtemplate>
+        <div class="modal-dialog " role="document ">
+          <div class="modal-content ">
+            <div class="modal-header " style=" background-color: #F44336; ">
+              <h4 class="modal-title " style="color:white " id="defaultModalLabel ">Confirmation</h4>
+            </div>
+            <div class="modal-body ">
+              <p>Are you sure you want to delete it ?</p>
+            </div>
+            <div class="modal-footer ">
+              <button type="button " class="btn btn-primary ">YES</button>
+              <button type="button " class="btn btn-danger " (click)="modalRef.hide() " data-dismiss="modal ">NO</button>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </div>
+  </div>
+</section>

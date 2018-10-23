@@ -1,0 +1,127 @@
+<div class="signup-box">
+  <div class="logo">
+      <a href="javascript:void(0);">
+          <b>DITS</b>
+      </a>
+  </div>
+  <div class="card">
+      <div class="body">
+          <form #signupForm="ngForm" (ngSubmit)="onsubmit(signupForm.value)">
+              <div class="msg">Register a new membership</div>
+              <div class="input-group display font" [class.has-error]="firstnameControl.invalid && firstnameControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">person</i>
+                  </span>
+                  <div class="form-line">
+                      <input type="text" #firstnameControl="ngModel" [(ngModel)]="firstname" class="form-control font" name="firstname" placeholder="FirstName"
+                          required>
+                  </div>
+                  <span class="error" *ngIf="firstnameControl.invalid && firstnameControl.touched">FirstName is required</span>
+
+              </div>
+
+              <div class="input-group display font" [class.has-error]="lastnameControl.invalid && lastnameControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">person</i>
+                  </span>
+                  <div class="form-line">
+                      <input type="text" #lastnameControl="ngModel" [(ngModel)]="lastname" class="form-control font" name="lastname" placeholder="LastName"
+                          required>
+                  </div>
+                  <span class="error" *ngIf="lastnameControl.invalid && lastnameControl.touched">LastName is required</span>
+
+              </div>
+
+              <div class="input-group display font">
+                  <span class="input-group-addon">
+                      <i class="material-icons">person</i>
+                  </span>
+                  <div class="form-line">
+                      <select class="form-control font">
+                          <option value="0">Male</option>
+                          <option value="1">Female</option>
+                          <option>Other</option>
+                      </select>
+                      <!-- <span class="help-block" *ngIf="lastnameControl.invalid && lastnameControl.touched">Gender is required</span> -->
+
+                  </div>
+
+              </div>
+              <div class="input-group display font" [class.has-error]="contactnumberControl.invalid && contactnumberControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">phone</i>
+                  </span>
+                  <div class="form-line">
+                      <input #contactnumberControl="ngModel" [(ngModel)]="contactnumber" type="text" class="form-control font" name="contactnumber"
+                          placeholder="Contact Number" required>
+                      <span class="error" *ngIf="contactnumberControl.invalid && contactnumberControl.touched">Contact Number is required</span>
+                  </div>
+              </div>
+
+              <!-- <div class="input-group display" [class.has-error]="alternatenumberControl.invalid && alternatenumberControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">phone </i>
+                  </span>
+                  <div class="form-line">
+                      <input #alternatenumberControl="ngModel" [(ngModel)]="alternatenumber" type="text" class="form-control" name="alternatenumber"
+                          placeholder="Alternate Number" required>
+                      <span class="error" *ngIf="alternatenumberControl.invalid && alternatenumberControl.touched">Contact Number is required</span>
+                  </div>
+              </div> -->
+
+
+
+
+              <div class="input-group display font" [class.has-error]="emailControl.invalid && emailControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">email</i>
+                  </span>
+                  <div class="form-line">
+                      <input #emailControl="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" [(ngModel)]="email" type="email" class="form-control font" required name="email" placeholder="Email Address"
+                          required>
+                      <span class="error" *ngIf="emailControl.errors?.required && emailControl.touched">
+                          Email is required
+                      </span>
+                      <span class="error" *ngIf="emailControl.errors?.pattern && emailControl.touched">
+                        Email is invalid
+                    </span>
+                  </div>
+              </div>
+
+              <!-- <div class="input-group display" [class.has-error]="alternateemailControl.invalid && alternateemailControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">email</i>
+                  </span>
+                  <div class="form-line">
+                      <input #alternateemailControl="ngModel" [(ngModel)]="alternateemail" type="email" class="form-control" name="alternateemail"
+                          placeholder="Alternate Email" required>
+                      <span class="error" *ngIf="alternateemailControl.invalid && alternateemailControl.touched">Alternate Email is required</span>
+                  </div>
+              </div> -->
+
+              <div class="input-group display font" [class.has-error]="dateofbirthControl.invalid && dateofbirthControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">date_range</i>
+                  </span>
+                  <div class="form-line">
+                      <input #dateofbirthControl="ngModel" placement="top"     [(ngModel)]="dateofbirth" type="email" class="form-control font" name="dateofbirth" placeholder="Date Of Birth"
+                          required>
+                      <span class="error" *ngIf="dateofbirthControl.invalid && dateofbirthControl.touched">Date of birth is required</span>
+                  </div>
+              </div>
+
+              <div class="form-group display font">
+                  <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
+                  <label for="terms">I read and agree to the
+                      <a href="javascript:void(0);">terms of usage</a>.</label>
+              </div>
+
+              <button class="btn btn-block btn-lg bg-pink waves-effect" [disabled]="signupForm.invalid" type="submit">SIGN UP</button>
+
+              <div class="m-t-25 m-b--5 align-center">
+                  <a [routerLink]="['/login']">You already have a membership?</a>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

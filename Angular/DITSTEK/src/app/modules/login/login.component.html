@@ -1,0 +1,59 @@
+<div class="login-box">
+  <div class="logo">
+      <a href="javascript:void(0);">
+          <b>DITS</b>
+      </a>
+      <small>Please sign in to continue</small>
+  </div>
+  <div class="card">
+      <div class="body">
+          <form #loginForm="ngForm" (ngSubmit)="onsubmit(loginForm.value)">
+              <div class="msg">Sign in to start your session</div>
+
+              <div class="input-group display font" [class.has-error]="usernameControl.invalid && usernameControl.touched">
+                      <span class="input-group-addon">
+                          <i class="material-icons">person</i>
+                      </span>
+                      <div class="form-line font">
+                          <input #usernameControl="ngModel" [(ngModel)]="username" type="text" class="form-control font" name="username" placeholder="Username"
+                              required >
+                      </div>
+                      <div>
+                      <span class="error input-group" *ngIf="usernameControl.invalid && usernameControl.touched">Username is required</span>
+                  </div>
+                  </div>
+              
+
+
+              <div class="input-group display" [class.has-error]="passwordControl.invalid && passwordControl.touched">
+                  <span class="input-group-addon">
+                      <i class="material-icons">lock</i>
+                  </span>
+                  <div class="form-line">
+                      <input #passwordControl="ngModel" [(ngModel)]="password" type="password" class="form-control font" name="password" placeholder="Password"
+                          required>
+                  </div>
+                  <span class="error" *ngIf="passwordControl.invalid && passwordControl.touched">Password is required</span>
+              </div>
+
+              <div class="row">
+                  <div class="col-xs-8 p-t-5">
+                      <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                      <label for="rememberme">Remember Me</label>
+                  </div>
+                  <div class="col-xs-4">
+                      <button class="btn btn-block bg-pink waves-effect" [disabled]="loginForm.invalid" type="submit">SIGN IN</button>
+                  </div>
+              </div>
+              <div class="row m-t-15 m-b--20">
+                  <div class="col-xs-6">
+                      <a [routerLink]="['/signup']">Register Now!</a>
+                  </div>
+                  <div class="col-xs-6 align-right">
+                      <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

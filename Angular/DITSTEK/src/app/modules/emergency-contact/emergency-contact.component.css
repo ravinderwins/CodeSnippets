@@ -1,0 +1,33 @@
+/* Modals ====================================== */
+.modal .modal-header {
+    border: none;
+    padding: 25px 25px 5px 25px; }
+    .modal .modal-header .modal-title {
+      font-weight: bold;
+      font-size: 16px; }
+  
+  .modal .modal-content {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.31) !important;
+    border: none; }
+    .modal .modal-content .modal-body {
+      color: #777;
+      padding: 15px 25px; }
+  
+  .modal .modal-footer {
+    border: none; }
+  
+  .modal-col-red {
+    background-color: #F44336; }
+    .modal-col-red .modal-body,
+    .modal-col-red .modal-title {
+      color: #fff !important; }
+    .modal-col-red .modal-footer {
+      background-color: rgba(0, 0, 0, 0.12); }
+      .modal-col-red .modal-footer .btn-link {
+        color: #fff !important; }
+        .modal-col-red .modal-footer .btn-link:hover, .modal-col-red .modal-footer .btn-link:active, .modal-col-red .modal-footer .btn-link:focus {
+          background-color: rgba(0, 0, 0, 0.12); }
