@@ -1,0 +1,32 @@
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+**/MicrosoftPublicSymbols/*
+**/FailedLoads/*
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+#Visual Studio Files
+[Oo]bj
+[Bb]in
+[Dd]ebug
+
+
+#other Files
+*.pdb
+*.jfm
+pingme.txt
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+
+
