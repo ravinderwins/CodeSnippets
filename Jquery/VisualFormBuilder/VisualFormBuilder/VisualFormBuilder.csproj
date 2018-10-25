@@ -1,0 +1,300 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75D0ACA5-B20D-462C-9553-CBA4CBD541A9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisualFormBuilder</RootNamespace>
+    <AssemblyName>VisualFormBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ajax\AjaxAction.aspx" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\datatable\jquery.dataTables.css" />
+    <Content Include="Assets\css\datatable\jquery.dataTables.min.css" />
+    <Content Include="Assets\css\jquery\jquery.ui.theme.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\js\beautifyhtml.js" />
+    <Content Include="Assets\js\bootstrap\bootstrap.js" />
+    <Content Include="Assets\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Assets\js\datatable\jquery.dataTables.js" />
+    <Content Include="Assets\js\datatable\jquery.dataTables.min.js" />
+    <Content Include="Assets\js\jquery\jquery.validate.min.js" />
+    <Content Include="Assets\scripts\fbuilder.js" />
+    <Content Include="Assets\js\html2canvas\html2canvas.js" />
+    <Content Include="Assets\js\html2canvas\html2canvas.min.js" />
+    <Content Include="Assets\js\jquery\jquery.min.js" />
+    <Content Include="Assets\js\jquery\jquery.tmpl.min.js" />
+    <Content Include="Assets\js\jquery\jquery.ui.min.js" />
+    <Content Include="Assets\scripts\vfb.js" />
+    <Content Include="Controls\FormFieldButtonTemplate.ascx" />
+    <Content Include="Controls\FormFieldCheckboxTemplate.ascx" />
+    <Content Include="Controls\FormFieldCommonTemplate.ascx" />
+    <Content Include="Controls\FormFieldDropdownlistTemplate.ascx" />
+    <Content Include="Controls\FormFieldMultilinetextTemplate.ascx" />
+    <Content Include="Controls\FormFieldRadiolistTemplate.ascx" />
+    <Content Include="Controls\FormFieldRichtextTemplate.ascx" />
+    <Content Include="Controls\FormLayoutSectionTemplate.ascx" />
+    <Content Include="Controls\FormLayoutTemplate.ascx" />
+    <Content Include="Controls\FormOptionsTemplate.ascx" />
+    <Content Include="Controls\FormSettingsTemplate.ascx" />
+    <Content Include="Form.aspx" />
+    <Content Include="FormEditor.aspx" />
+    <Content Include="Controls\FormFieldLookuplistTemplate.ascx" />
+    <Content Include="FormListing.html" />
+    <Content Include="FormPreview.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ajax\AjaxAction.aspx.cs">
+      <DependentUpon>AjaxAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\AjaxAction.aspx.designer.cs">
+      <DependentUpon>AjaxAction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CommonFunctions.cs" />
+    <Compile Include="Controls\FormFieldButtonTemplate.ascx.cs">
+      <DependentUpon>FormFieldButtonTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldButtonTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldButtonTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldCheckboxTemplate.ascx.cs">
+      <DependentUpon>FormFieldCheckboxTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldCheckboxTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldCheckboxTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldCommonTemplate.ascx.cs">
+      <DependentUpon>FormFieldCommonTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldCommonTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldCommonTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldDropdownlistTemplate.ascx.cs">
+      <DependentUpon>FormFieldDropdownlistTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldDropdownlistTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldDropdownlistTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldMultilinetextTemplate.ascx.cs">
+      <DependentUpon>FormFieldMultilinetextTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldMultilinetextTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldMultilinetextTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldRadiolistTemplate.ascx.cs">
+      <DependentUpon>FormFieldRadiolistTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldRadiolistTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldRadiolistTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldRichtextTemplate.ascx.cs">
+      <DependentUpon>FormFieldRichtextTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldRichtextTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldRichtextTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormLayoutSectionTemplate.ascx.cs">
+      <DependentUpon>FormLayoutSectionTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormLayoutSectionTemplate.ascx.designer.cs">
+      <DependentUpon>FormLayoutSectionTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormLayoutTemplate.ascx.cs">
+      <DependentUpon>FormLayoutTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormLayoutTemplate.ascx.designer.cs">
+      <DependentUpon>FormLayoutTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormOptionsTemplate.ascx.cs">
+      <DependentUpon>FormOptionsTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormOptionsTemplate.ascx.designer.cs">
+      <DependentUpon>FormOptionsTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormSettingsTemplate.ascx.cs">
+      <DependentUpon>FormSettingsTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormSettingsTemplate.ascx.designer.cs">
+      <DependentUpon>FormSettingsTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditor.aspx.cs">
+      <DependentUpon>FormEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormEditor.aspx.designer.cs">
+      <DependentUpon>FormEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormFieldLookuplistTemplate.ascx.cs">
+      <DependentUpon>FormFieldLookuplistTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FormFieldLookuplistTemplate.ascx.designer.cs">
+      <DependentUpon>FormFieldLookuplistTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPreview.aspx.cs">
+      <DependentUpon>FormPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPreview.aspx.designer.cs">
+      <DependentUpon>FormPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\css\bootstrap\" />
+    <Folder Include="Assets\images\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65149</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65149/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
