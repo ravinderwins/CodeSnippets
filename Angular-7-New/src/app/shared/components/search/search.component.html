@@ -1,0 +1,6 @@
+<form [formGroup]="searchForm" (keydown)="keyDownFunction($event)">
+  <div class="form-group has-search">
+    <input type="text" formControlName="Search" class="form-control" placeholder="Search" />
+    <span class="fa fa-search form-control-feedback"></span>
+  </div>
+</form>

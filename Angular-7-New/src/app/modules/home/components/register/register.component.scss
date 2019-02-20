@@ -1,0 +1,228 @@
+@import "../../../../../assets/scss/custom_variables.scss";
+.logInfo {
+	display: table;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	max-width: 500px;
+    margin: 0 auto;
+}
+.logInfoInner {
+	position: relative;
+	width: 100%;
+}
+.logDescTop {
+	p {
+		font-size: 21px;
+		line-height: 28px;
+		color: #fff;
+		font-weight: 300;
+	}
+	h1 {
+		font-size: 38px;
+		line-height:65px;
+		color: #fff;
+		font-family: $font-family;
+		text-transform: capitalize;
+		letter-spacing: 1px;
+	}
+}
+.logFormInner {
+	margin: 0px !important;
+	padding:0 0 30px 0;
+	input {
+		background-color: transparent;
+		border-color: transparent;
+		border-bottom: 1px solid #8e927c;
+		padding: 5px 12px 5px 0 !important;
+		height: auto;
+		border-radius: 0px;
+		font-weight: 300;
+		font-size: 15px;
+		color: #e2f4cc !important;
+	}
+	a {
+		color: #e2f4cc;
+		text-decoration: none;
+		font-size: 14px;
+		font-weight: 300;
+		line-height: 63px;
+		letter-spacing: 1px;
+		&:hover {
+			color: #e2f4cc;
+			text-decoration: none;
+		}
+	}
+}
+.logImage {
+	display: table;
+	height: 100%;
+	width: 100%;
+	text-align: right;
+	position: relative;
+}
+.logimageInner {
+	display: table-cell;
+	vertical-align: middle;
+	img {
+		width: auto;
+		max-width: 100%;
+	}
+}
+.logDesc {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	p{
+	font-size: 13px;
+		line-height: 20px;
+		font-weight:400;
+		a{
+			color:#000;
+			font-weight: bold;
+		}
+	}
+}
+.logText {
+    margin: 0 0 1rem 0;
+	p {
+		color: #e2f4cc;
+		font-size: 15px;
+		font-weight: 300;
+		position: relative;
+		display: inline-block;
+		&:before {
+			content: "";
+			background: #fff;
+			width: 32px;
+			height: 1px;
+			position: absolute;
+			left: -43px;
+			top: 11px;
+		}
+		&:after {
+			content: "";
+			background: #fff;
+			width: 32px;
+			height: 1px;
+			position: absolute;
+			right: -43px;
+			top: 11px;
+		}
+	}
+}
+.logBtn {
+	color: #e2f4cc!important;
+	margin: 20px 0 0 0;
+}
+.socialButtons {
+	text-align: left;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li {
+			width: auto;
+			display: inline-block;
+			margin: 0 14px 0 0;
+			font-size: 12px;
+			letter-spacing: 0.2px;
+			&.facebook {
+				a {
+					background-color: #4862a3;
+				}
+			}
+			a {
+				padding: 12px 12px;
+				color: #fff;
+				border-radius: 4px;
+				display:block;
+				i {
+					padding: 0 12px 0 0;
+				}
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			&.googlePlus {
+				a {
+					background-color: #c64333;
+				}
+			}
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+}
+#signModal {
+	.modal-dialog.modal-lg {
+		margin: 0 auto;
+		min-height: auto;
+		border: 0px solid transparent;
+	}
+	.modal-content {
+		background: url(../../../../../assets/images/loginbg1.jpg);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		position: relative;
+		border: 0px solid transparent;
+		border-radius: 0px;
+	}
+	.modal-header {
+		border-bottom: 1px solid transparent;
+		padding: 2px 1rem!important;
+		.close {
+			font-size: 35px;
+			font-weight: 700;
+			color: #000;
+			text-shadow: 0 1px 0 #fff;
+			position: absolute;
+			right: 24px;
+			top: 22px;
+			border: 2px solid #000!important;
+			padding: 2px!important;
+			width: 45px;
+			height: 45px;
+			line-height: 0;
+			text-align: center;
+			border-radius: 50px;
+			z-index: 1;
+			opacity:0.5;
+			transition:0.5s;
+			&:hover{
+				opacity:1;transition:0.5s;
+			}
+			&:focus{
+				outline:none;
+			}
+		}
+	}
+	.modal-body{
+	    padding: 10px 1rem 30px;	
+	}
+	.regBtn {
+    margin:0;
+    }
+	.btn-green:hover {
+    color: #fff!important;
+     }   
+	
+	.logImage {
+		display: table;
+		height: 100%;
+		width: 100%;
+		text-align: right;
+		position: relative;
+	}
+}
+.logDescTop {
+	h1 {
+		font-size: 30px;
+	}
+}
+.pointer{
+	cursor: pointer
+} 

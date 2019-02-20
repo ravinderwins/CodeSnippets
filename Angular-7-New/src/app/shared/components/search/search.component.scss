@@ -1,0 +1,29 @@
+.has-search {
+    position: relative;
+    margin:0 20px 0 0;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #2d3500;
+    right: 0;
+    top: 0;
+}
+.has-search .form-control {
+    padding-left: 12px;
+    background: rgba(255, 255, 255, 0.7);
+	border-color: transparent;
+	width:100%;
+	min-width:235px;
+}
+.has-search input::placeholder
+{
+color:#2d3500!important;
+font-weight: bold;
+}

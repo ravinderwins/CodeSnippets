@@ -1,0 +1,28 @@
+@import "../../../../assets/scss/custom_variables.scss";
+
+.navbar-nav {
+    li {
+        font-size: $font-size-regular;
+        font-weight: $font-weight-regular;
+        margin: 0 20px 0 0;
+        &.mg10 {
+        margin:0 7px 0px 0!important;
+        }
+        &:last-child {
+            margin: 0;
+        }
+        &.active{
+            a{
+            font-weight: 600;	
+            }
+        }
+        a {
+            padding: 0.375rem 0.75rem;
+            display: block;
+            color: $color-green;
+        }
+        &:hover{
+         text-decoration: none!important;	
+        }
+    }
+}

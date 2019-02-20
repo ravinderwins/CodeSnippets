@@ -1,0 +1,16 @@
+@import "../../../../assets/scss/custom_variables.scss";
+
+.topHeader {
+	position: relative;
+	.navbar-brand {
+		width: 150px;transition: all 0.7s ease;
+	}
+	.learnBtn {
+    position: absolute;
+    left: 50%;
+    bottom: -16px;
+    transform: translateX(-50%);
+	font-weight:$font-weight-light;
+	letter-spacing:$letter-spacing-light;
+}
+}

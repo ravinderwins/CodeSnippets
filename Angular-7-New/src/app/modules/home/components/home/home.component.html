@@ -1,0 +1,154 @@
+<app-home-slider></app-home-slider>
+<section class="videoLessons">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-4 offset-sm-1 col-xs-12 order-md-2 order-xs-1">
+            <div class="thumbImage defineFloat">
+               <img src="../../../../../assets/images/thumbimage4.jpg" alt="image" />
+               <div class="thumbIcon"><i class="fa fa-play" aria-hidden="true" (click)="openVideoModal(videoTemplate,'video1')"></i></div>
+            </div>
+         </div>
+         <div class="col-sm-7 col-xs-12 order-md-1 order-xs-2">
+            <div class="thumbDesc defineFloat">
+               <h2>Engaging Video Lessons</h2>
+               <p>Videos that help you visualize each concept, making it easier to understand.<br>
+                  Clearer concepts lead to higher scores!
+               </p>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</section>
+<!--3-->
+<section class="learning">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-4 col-xs-12">
+            <div class="thumbImage defineFloat">
+               <img src="../../../../../assets/images/thumbimage1.png" alt="image" />
+            </div>
+         </div>
+         <div class="col-sm-7 offset-sm-1 col-xs-12">
+            <div class="thumbDesc defineFloat">
+               <h2>Personalized Learning Journeys</h2>
+               <p>Every student has a Knowledge Graph based on their learning need & <br> speed. This links different
+                  concepts and helps students identify their <br> strengths & areas for improvement.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--4-->
+<section class="practice">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-4 offset-sm-1 col-xs-12 order-md-2 order-xs-1">
+            <div class="thumbImage defineFloat">
+               <img src="../../../../../assets/images/thumbimage2.png" alt="image" />
+            </div>
+         </div>
+         <div class="col-sm-7 col-xs-12 order-md-1 order-xs-2">
+            <div class="thumbDesc defineFloat">
+               <h2>Unlimited Practice & In-depth Analysis</h2>
+               <p>Learning journeys are mapped to a student's grade & syllabus (CBSE, ICSE,<br> IB, State boards etc).
+                  Each chapter comprises small concepts that are <br> stitched together with adaptive questions as per
+                  the relevant syllabus. </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--5-->
+<section class="learningSection">
+   <div class="container">
+      <div class="row">
+         <!---->
+         <div class="col-sm-12">
+            <div class="headindTitle defineFloat text-center">
+               <h3 class="text-uppercase">unique learning path with the widest syllabus coverage </h3>
+               <h4>All Round Learning & Development</h4>
+            </div>
+         </div>
+         <!--1-->
+         <div class="col-sm-12">
+            <div class="middleSection">
+               <div class="middleImage"><img src="../../../../../assets/images/thumbimage3.png" alt="image" /></div>
+               <!--1-->
+               <div class="iconSection">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon2.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Leaderboard</h5>
+                     <p>Register and track your position across others.</p>
+                  </div>
+               </div>
+               <!--2-->
+               <div class="iconSection iconSection1">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon8.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Model Test Papers</h5>
+                     <p>A must-do before the exams.</p>
+                  </div>
+               </div>
+               <!--3-->
+               <div class="iconSection iconSection2">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon1.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Flag Questions</h5>
+                     <p>Mark as important as you proceed <br> and revise at a click.</p>
+                  </div>
+               </div>
+               <!--4-->
+               <div class="iconSection iconSection3">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon6.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Question Bank</h5>
+                     <p>Exhaustive question bank to help you prepare</p>
+                  </div>
+               </div>
+               <!--5-->
+               <div class="iconSection4">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon4.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Video Lectures</h5>
+                     <p>Register and track your position across others.</p>
+                  </div>
+               </div>
+               <!--6-->
+               <div class="iconSection4 iconSection5">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon5.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Adaptive Practice</h5>
+                     <p>Register and track your position <br> across others.</p>
+                  </div>
+               </div>
+               <!--7-->
+               <div class="iconSection4 iconSection6">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon3.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Live Webinar</h5>
+                     <p>Register and track your position <br> across others.</p>
+                  </div>
+               </div>
+               <!--8-->
+               <div class="iconSection4 iconSection7">
+                  <div class="iconImage"><img src="../../../../../assets/images/icon7.png" alt="image" /></div>
+                  <div class="iconDesc">
+                     <h5>Web and Mobile</h5>
+                     <p>Exhaustive question bank to help you prepare</p>
+                  </div>
+               </div>
+               <!---->
+            </div>
+         </div>
+         <!---->
+      </div>
+   </div>
+</section>
+
+<ng-template #videoTemplate>
+   <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+   </button>
+   <iframe class="embed-responsive-item" [src]="videosrc | safe" id="video" allowscriptaccess="always"></iframe>
+</ng-template>

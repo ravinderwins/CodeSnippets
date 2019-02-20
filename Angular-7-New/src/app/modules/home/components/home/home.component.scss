@@ -1,0 +1,473 @@
+@import "../../../../../assets/scss/custom_variables.scss";
+
+.videoLessons {
+	padding: 73px 0 25px 0;
+	position: relative;
+	@media screen and (max-width: 1199px){
+	padding: 73px 0 0 0;	
+	}
+	@media screen and (max-width:576px)
+	{
+	padding: 73px 0 50px 0;	
+	}
+.thumbDesc {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: $text-right;
+	right: 0;
+	@media screen and (max-width:767px){
+	max-width: 375px;
+	}
+	@media screen and (max-width:640px){
+	max-width: 325px;
+	}
+	@media screen and (max-width:576px){
+		max-width: 325px;
+		max-width: 100%;
+		position: relative;
+		top: 0;
+		transform: translateY(0);
+		text-align: left;
+		}
+  }
+	  .thumbImage {
+			position: relative;
+			box-shadow:0 5px 10px rgba(0,0,0,0.63);
+			@media screen and (max-width:576px){
+			margin:0 0 24px 0;
+			}
+			.thumbIcon {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			width: 100%;
+			text-align:center;
+			cursor:pointer;
+				i{
+					font-size: 22px;
+					background-color: #424242;
+					border-radius: 10px;
+					box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+					width: 57px;
+					height: 40px;
+					line-height: 40px;
+					color: #fff;
+					transition: 0.5s;
+					&:hover{
+						background-color: #ff0000;
+						color:#ffffff;
+						transition:0.5s;
+					}
+				}
+       }
+     }
+} 
+.learning {
+	background: url(../../../../../assets/images/bgimage.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	padding: 73px 0 100px 0;
+	position: relative;
+	@media screen and (max-width: 1199px){
+    padding: 34px 0 93px 0px;
+	}
+	@media screen and (max-width:576px){
+		background-color: #f8f8f8!important;
+		background: none;
+	}
+	.thumbDesc {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		text-align: $text-left;
+		left: 0;
+		@media screen and (max-width:640px){
+	    top: 60%;
+		}
+		@media screen and (max-width:576px){
+			max-width: 325px;
+			max-width: 100%;
+			position: relative;
+			top: 0;
+			transform: translateY(0);
+			text-align: left;
+			}
+	}
+}
+.practice {
+	padding: 0 0 50px 0;
+	position: relative;
+	.thumbDesc {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		text-align: $text-right;
+		left:auto;
+		right:0;
+		@media screen and (max-width:576px){
+			max-width: 325px;
+			max-width: 100%;
+			position: relative;
+			top: 0;
+			transform: translateY(0);
+			text-align: left;
+			}
+	}
+}
+/*----*/
+.learningSection {
+		background: url(../../../../../assets/images/jackfruitbg.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: top left;
+		padding:75px 0 150px 0;
+	    @media screen and (max-width: 1199px) {
+		padding:75px 0 150px 0;
+	    }
+	    @media screen and (max-width:991px) {
+		padding:75px 0 90px 0;
+	    }
+}
+.middleSection {
+	position: relative;
+	margin: 100px 0 0 0;
+	@media screen and (max-width: 1199px){
+     margin: 75px 0 0 0;
+	}
+	@media screen and (max-width: 640px){
+	background: url(../../../../../assets/images/thumbimage3transparent.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center center;
+    background-attachment: fixed;
+	}
+}
+.middleImage {
+	width: 40%;
+	margin: 0 auto;
+	@media screen and (max-width: 640px){
+	width: 60%;
+    margin: 0 auto 25px;
+	display: none;
+	}
+}
+.iconSection {
+    position: absolute;
+    top: -40px;
+    left: 33px;
+	padding: 0 100px 0 0px;
+	min-height: 100px;
+	animation-delay: 21s;
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-duration: 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	@media screen and (max-width: 1199px){
+	max-width: 372px;
+    left: 10px;
+    top: -25px;
+	padding: 0 70px 0 0px;
+	min-height:80px;
+	}
+	@media screen and (max-width: 991px){
+	max-width: 280px;
+    left: 8px;
+    top: -11px;	
+	}
+	@media screen and (max-width:640px){
+	max-width: 100%;
+    left: 0;
+    top: 0;
+    position: relative;
+    min-height: 100px;
+    padding: 0 0 0 116px;
+    margin: 0 0 20px 0;
+	}
+	h5 {
+		color: $color-red;
+	}
+	&.iconSection1 {
+		top: 105px;
+		left: 38px;
+		animation-delay: 18s;
+		@media screen and (max-width: 1199px){
+		left: 24px;
+        top: 90px;	
+		}
+		@media screen and (max-width: 991px){
+		left: 16px;
+	    top: 82px;
+	    max-width: 215px;
+		}
+		@media screen and (max-width: 640px){
+		    top: 0;
+           left: 0;
+           max-width: 100%;
+		}
+		h5 {
+			color: $color-dark-green;
+		}
+	}
+	&.iconSection2 {
+		bottom: 43px;
+		left: 34px;
+		top: auto;
+		animation-delay: 15s;
+		@media screen and (max-width: 1199px){
+	    bottom: 52px;
+		left: -6px;
+		top: auto;
+		}
+		@media screen and (max-width: 991px){
+		bottom: 17px;
+		left: 2px;
+		top: auto;
+	    max-width: 245px;
+		}
+		@media screen and (max-width: 640px){
+		  bottom: 0;
+          left: 0;
+          top: 0;
+		  max-width:100%;
+		}
+		h5 {
+			color: $color-blue;
+		}
+	}
+	&.iconSection3 {
+		bottom: -70px;
+		left: 88px;
+		top: auto;
+		animation-delay: 12s;
+		@media screen and (max-width: 1199px){
+		bottom: -48px;
+		left: 30px;
+		top: auto;
+		}
+		@media screen and (max-width: 991px){
+		bottom: -60px;
+		left: 43px;
+		top: auto;
+		}
+		@media screen and (max-width: 640px){
+		  bottom: 0;
+          left: 0;
+          top: 0;
+		}
+		h5 {
+			color: $color-orange;
+		}
+	}
+}
+.iconImage {
+	position: absolute;
+	right: 0;
+	@media screen and (max-width: 1199px){
+	width: 70px;
+	}
+	@media screen and (max-width: 991px){
+	width: 60px;
+	}
+	@media screen and (max-width:640px){
+	width: 90px;
+    left: 0;
+	}
+}
+.iconDesc {
+	text-align: right;
+	position: relative;
+	top: 21px;
+	padding: 0 10px 0 0;
+	@media screen and (max-width:1199px){
+	top:3px;
+	}
+	@media screen and (max-width:991px){
+	padding: 0 0px 0 0;
+	}
+	@media screen and (max-width:640px){
+	text-align: left;
+	padding: 0 0 0 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+	}
+	p {
+		color: $color-black-light;
+		font-size: $font-size-xtra-small;
+		font-weight: $font-weight-light;
+		letter-spacing: $letter-spacing-bold;
+		@media screen and (max-width:991px){
+		font-size: 13px;
+		}
+	}
+}
+.iconSection4 {
+	right: 12px;
+    position: absolute;
+    top: -40px;
+	min-height: 100px;
+	padding: 0 0 0 108px;
+	color: $color-dark-blue;
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-duration: 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	@media screen and (max-width: 1199px){
+	padding: 0 0 0 70px;max-width: 352px;
+    right: 30px;
+    top: -25px;
+	}
+	@media screen and (max-width:991px){
+	padding: 0 0 0 70px;
+    max-width: 280px;
+    right: 9px;
+    top: -13px;
+	}
+	@media screen and (max-width:640px){
+	padding: 0 0 0 116px;
+    max-width: 100%;
+    right: auto;
+    top: 0;
+    position: relative;
+    left: 0;
+    min-height: 100px;
+    width: 100%;
+    margin: 0 0 20px 0;
+	}
+	.iconImage {
+		left: 0;
+		position: absolute;
+		right: auto;
+		@media screen and (max-width: 1199px){
+		width: 70px;	
+		}
+		@media screen and (max-width:991px){
+		width: 60px;
+		}
+		@media screen and (max-width:640px){
+		width: 90px;
+		}
+	}
+	.iconDesc {
+		text-align: left;
+		padding: 0 0 0 10px;
+		position: relative;
+		top: 21px;
+		@media screen and (max-width: 1199px){
+		top: 0px;	
+		}
+		@media screen and (max-width: 991px){
+		padding: 0 0 0 0;
+		}
+		@media screen and (max-width: 640px){
+		padding: 0 0 0 0;
+	    position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		}
+	}
+	&.iconSection5 {
+		top: 105px;
+		right: 7px;
+		max-width: 440px;
+		animation-delay: 3s;
+		@media screen and (max-width: 1199px){
+		top: 90px;
+		right: -7px;
+		}
+		@media screen and (max-width: 991px){
+		    top: 90px;
+			right: 11px;
+			max-width: 215px;
+		}
+		@media screen and (max-width:640px){
+		 top: 0;
+		 right: auto;
+		 left: 0;
+		 max-width: 100%;
+		}
+		h5 {
+			color: $color-sky-blue;
+		}
+	}
+	&.iconSection6 {
+		bottom: 43px;
+		right: 38px;
+		top: auto;
+		animation-delay: 6s;
+		@media screen and (max-width: 1199px){
+		bottom: 40px;
+		right: 3px;
+		top: auto;
+		}
+		@media screen and (max-width: 991px){
+		 bottom: -5px;
+		 right: 31px;
+		 top: auto;
+		 max-width: 215px;
+		}
+		@media screen and (max-width:640px){
+		    bottom: auto;
+			right: auto;
+			top: 0;
+			max-width: 100%;
+			left: 0;
+		}
+		h5 {
+			color: $color-pink;
+		}
+	}
+	&.iconSection7 {
+		bottom:-71px;
+		right: 88px;
+		top: auto;
+		animation-delay: 9s;
+		@media screen and (max-width: 1199px){
+		bottom: -66px;
+		right: 50px;
+		}
+		@media screen and (max-width:991px){
+		bottom: -80px;
+		right: 50px;
+		max-width: 280px;
+		}
+		@media screen and (max-width:640px){
+            bottom: auto;
+			right: auto;
+			top: 0;
+			max-width: 100%;
+			left: 0;
+		}
+        h5 {
+			color: $color-blue-light;
+		}
+	}
+}
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	
+	to {
+	  opacity: 1;
+	}
+  }
+.embed-responsive-item{
+	height: 590px;
+}
+button.close.pull-right {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: #fff;
+    font-size: 24px;
+    background: #000;
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    opacity: 1;
+}

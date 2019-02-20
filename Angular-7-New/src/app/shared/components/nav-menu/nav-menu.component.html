@@ -1,0 +1,43 @@
+<ul class="navbar-nav ml-auto" id="navbar">
+    <li class="nav-item mg10" [ngClass]="[currenthref == '/home' ? 'active' : '']">
+      <a [routerLink]="['/home']" (click)="ngOnChange('/home')">Home</a>
+    </li>
+    <li class="nav-item mg10" [ngClass]="[currenthref == '/about' ? 'active' : '']">
+      <a [routerLink]="['/about']" (click)="ngOnChange('/about')">About Us</a>
+    </li>
+    <li class="nav-item mg10" [ngClass]="[currenthref == '/contact' ? 'active' : '']">
+      <a [routerLink]="['/contact']" (click)="ngOnChange('/contact')">Contact Us</a>
+    </li>
+    
+    <li *ngIf="!isUserLoggedIn">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="btn btn-green" (click)="openModal(loginPopupTemplate)">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-green" (click)="openModal(registerPopupTemplate)">Sign Up</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Temporary content -->
+    <li *ngIf="isUserLoggedIn">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a><b>Welcome </b><span class="text-capitalize">{{fullName}}</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-green" (click)="logout()">LogOut</a>
+        </li>
+
+      </ul>
+    </li>
+    <!---->
+  </ul>
+
+  <ng-template #LoginPopupTemplate>
+      <app-login (headerEmitter)="performModalActions($event)"></app-login>
+    </ng-template>
+    
+    <ng-template #RegisterPopupTemplate>
+      <app-register (headerEmitter)="performModalActions($event)"></app-register>
+    </ng-template>
